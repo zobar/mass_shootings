@@ -1,5 +1,10 @@
 # mass_shootings
 
+[![Gem version](https://img.shields.io/gem/v/mass_shootings.svg)](https://rubygems.org/gems/mass_shootings)
+[![Gem downloads](https://img.shields.io/gem/dt/mass_shootings.svg)](https://rubygems.org/gems/mass_shootings)
+[![Travis status](https://img.shields.io/travis/zobar/mass_shootings.svg)](https://travis-ci.org/zobar/mass_shootings)
+[![Coveralls coverage](https://img.shields.io/coveralls/zobar/mass_shootings.svg)](https://coveralls.io/github/zobar/mass_shootings)
+
 `mass_shootings` provides an easy-to-use Ruby interface to query and report on
 mass shootings in America.
 
