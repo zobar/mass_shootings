@@ -23,6 +23,7 @@ module MassShootings
 
         gem.add_development_dependency 'minitest',  '~> 5.8'
         gem.add_development_dependency 'mocha',     '~> 1.1'
+        gem.add_development_dependency 'rake',      '~> 10.4'
         gem.add_development_dependency 'simplecov', '~> 0.11'
         gem.add_development_dependency 'yard',      '~> 0.8'
       end
