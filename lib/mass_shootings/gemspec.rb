@@ -10,7 +10,7 @@ module MassShootings
       @gemspec ||= Gem::Specification.new do |gem|
         gem.authors  = 'David P Kleinschmidt'
         gem.email    = 'david@kleinschmidt.name'
-        gem.homepage = 'http://bitbucket.org/zobar/mass_shootings'
+        gem.homepage = 'http://github.com/zobar/mass_shootings'
         gem.license  = 'MIT'
         gem.name     = 'mass_shootings'
         gem.summary  = 'Mass shootings as a service'
