@@ -1,6 +1,5 @@
 require 'mass_shootings/shooting'
 require 'nokogiri'
-require 'pp'
 
 module MassShootings
   module Tracker
@@ -78,8 +77,7 @@ module MassShootings
         @shootings ||= wiki.
           xpath('child::h2 | child::h2/following-sibling::p/a').
           slice_before { |element| element.node_name == 'h2' }.
-          map(&method(:parse)).
-          tap { |s| PP.pp s }
+          map(&method(:parse))
       end
     end
   end
