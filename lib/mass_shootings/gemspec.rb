@@ -5,6 +5,7 @@ module MassShootings
     #
     # Gemspec for `mass_shootings`. This is only used by the gemspec and the
     # Rakefile, and must be required separately.
+    # @return [Gem::Specification]
     #
     def gemspec
       @gemspec ||= Gem::Specification.new do |gem|

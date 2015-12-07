@@ -1,4 +1,5 @@
 require 'active_model'
+require 'active_support/core_ext/hash/keys'
 
 module MassShootings
   #
@@ -7,7 +8,26 @@ module MassShootings
   #
   class Shooting
     include ActiveModel::AttributeMethods
+    include ActiveModel::Serializers::JSON
 
+    class << self
+      #
+      # Creates a Shooting from a JSON object.
+      # @return [Shooting]
+      #
+      def from_json(json)
+        new(
+          id:               json['id'],
+          alleged_shooters: json['allegedShooters'],
+          casualties:       json['casualties'].symbolize_keys,
+          date:             Date.iso8601(json['date']),
+          location:         json['location'],
+          references:       json['references'].map(&method(:URI))
+        )
+      end
+    end
+
+    attr_reader :attributes
     define_attribute_methods :id, :alleged_shooters, :casualties, :date,
       :location, :references
 
@@ -16,6 +36,20 @@ module MassShootings
     #
     def attribute(name)
       @attributes[name.to_sym]
+    end
+
+    #
+    # Returns a hash representing the shooting.
+    # @return [Hash{String => Object}]
+    #
+    def as_json(_=nil)
+      json = {'id' => id}
+      json['allegedShooters'] = alleged_shooters unless alleged_shooters.nil?
+      json.merge(
+        'casualties' => casualties.stringify_keys,
+        'date'       => date.iso8601,
+        'location'   => location,
+        'references' => references.map(&:to_s))
     end
 
     #
